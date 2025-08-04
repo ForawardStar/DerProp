@@ -4,7 +4,6 @@ import torch.nn.functional as F
 import numpy as np
 
 
-# see https://github.com/charlesCXK/TorchSemiSeg/blob/main/furnace/seg_opr/loss_opr.py
 class ProbOhemCrossEntropy2d(nn.Module):
     def __init__(self, ignore_index, reduction='mean', thresh=0.7, min_kept=256,
                  down_ratio=1, use_weight=False):
