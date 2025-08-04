@@ -50,7 +50,6 @@ def init_seeds(seed=0, cuda_deterministic=False):
     torch.cuda.manual_seed_all(seed)
 
     cudnn.enabled = True
-    # Speed-reproducibility tradeoff https://pytorch.org/docs/stable/notes/randomness.html
     if cuda_deterministic:  # slower, more reproducible
         cudnn.deterministic = True
         cudnn.benchmark = False
@@ -87,9 +86,6 @@ def main():
 
     model_seg_m = SegmentationNet(cfg)
     
-
-    # sam = sam_model_registry["vit_b"](checkpoint="sam/checkpoints/sam_vit_b.pth")
-    # sam.cuda()
 
     if rank == 0:
         logger.info('Total params: {:.1f}M\n'.format(count_params(model_seg)))
