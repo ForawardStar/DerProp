@@ -6,10 +6,6 @@ import torch.distributed as dist
 
 
 def setup_distributed(backend="nccl", port=None):
-    """AdaHessian Optimizer
-    Lifted from https://github.com/BIGBALLON/distribuuuu/blob/master/distribuuuu/utils.py
-    Originally licensed MIT, Copyright (c) 2020 Wei Li
-    """
     num_gpus = torch.cuda.device_count()
 
     if "SLURM_JOB_ID" in os.environ:
@@ -17,7 +13,6 @@ def setup_distributed(backend="nccl", port=None):
         world_size = int(os.environ["SLURM_NTASKS"])
         node_list = os.environ["SLURM_NODELIST"]
         addr = subprocess.getoutput(f"scontrol show hostname {node_list} | head -n1")
-        # specify master port
         if port is not None:
             os.environ["MASTER_PORT"] = str(port)
         elif "MASTER_PORT" not in os.environ:
