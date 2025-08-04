@@ -51,7 +51,6 @@ def color_map(dataset='pascal'):
 
 
 class AverageMeter(object):
-    """Computes and stores the average and current value"""
 
     def __init__(self, length=0):
         self.length = length
@@ -68,7 +67,6 @@ class AverageMeter(object):
 
     def update(self, val, num=1):
         if self.length > 0:
-            # currently assert num==1 to avoid bad usage, refine when there are some explict requirements
             assert num == 1
             self.history.append(val)
             if len(self.history) > self.length:
@@ -84,7 +82,7 @@ class AverageMeter(object):
 
 
 def intersectionAndUnion(output, target, K, ignore_index=255):
-    # 'K' classes, output and target sizes are N or N * L or N * H * W, each value in range 0 to K - 1.
+
     assert output.ndim in [1, 2, 3]
     assert output.shape == target.shape
     output = output.reshape(output.size).copy()
