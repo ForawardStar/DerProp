@@ -14,9 +14,6 @@ class SegmentationNet(nn.Module):
         self.is_corr = True
 
         if 'resnet' in cfg['backbone']:
-            #self.backbone = \
-            #    resnet.__dict__[cfg['backbone']](cfg['pretrain'], multi_grid=cfg['multi_grid'],
-            #                                     replace_stride_with_dilation=cfg['replace_stride_with_dilation'])
             self.backbone = resnet.resnet101(cfg['pretrain'], multi_grid=cfg['multi_grid'],
                                                  replace_stride_with_dilation=cfg['replace_stride_with_dilation'])
         else:
