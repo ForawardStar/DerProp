@@ -2,7 +2,7 @@
 dataset: pascal
 nclass: 21
 crop_size: 321
-data_root: /home/lmj/fyb/CorrMatch-main/dataset/PascalVoc/VOCdevkit/VOC2012
+data_root: /your/data/path
 
 # arguments for training
 epochs: 80
@@ -20,5 +20,4 @@ backbone: resnet101
 pretrain: True
 multi_grid: False
 replace_stride_with_dilation: [False, True, True]
-#dilations: [6, 12, 18]
 dilations: [12, 24, 36]
