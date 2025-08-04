@@ -1,7 +1,7 @@
 # arguments for dataset
 dataset: cityscapes
 nclass: 19
-crop_size: 801
+crop_size: 321
 data_root: /home/lmj/fyb/CorrMatch-main/dataset/cityscapes/
 
 # arguments for training
