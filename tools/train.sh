@@ -5,10 +5,7 @@ config=configs/pascal.yaml
 labeled_id_path=/home/lmj/fyb/CorrMatch-main/partitions/pascal/92/labeled.txt
 unlabeled_id_path=/home/lmj/fyb/CorrMatch-main/partitions/pascal/92/unlabeled.txt
 save_path=exp/pascal/92/DerProp
-#config=configs/cityscapes.yaml
-#labeled_id_path=partitions/cityscapes/1_4/labeled.txt
-#unlabeled_id_path=partitions/cityscapes/1_4/unlabeled.txt
-#save_path=exp/cityscapes/1_4/corrmatch
+
 
 mkdir -p $save_path
 
