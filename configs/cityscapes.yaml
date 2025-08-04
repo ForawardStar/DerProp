@@ -1,8 +1,6 @@
 # arguments for dataset
 dataset: cityscapes
-nclass: 19
-crop_size: 321
-data_root: /home/lmj/fyb/CorrMatch-main/dataset/cityscapes/
+nclass: /your/data/path/
 
 # arguments for training
 epochs: 240
