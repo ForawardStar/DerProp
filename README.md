@@ -1,20 +1,6 @@
-# CorrMatch (CVPR 2024)
+# DerProp 
 
-This repository contains the official implementation of the following paper:
 
-> **[CorrMatch: Label Propagation via Correlation Matching for Semi-Supervised Semantic Segmentation](https://arxiv.org/abs/2306.04300)**</br>
-> [Boyuan Sun](https://bbbbchan.github.io), [Yuqi Yang](https://github.com/BBBBchan/CorrMatch), [Le Zhang](http://zhangleuestc.cn/), [Ming-Ming Cheng](https://mmcheng.net/cmm/),  [Qibin Hou](https://houqb.github.io/)</br>
-
-🔥 The **Jittor vsersion implementation** of CorrMatch is available at [Jittor Version](https://github.com/BBBBchan/CorrMatch-Jittor) !!!
-
-🔥 Our paper is accepted by IEEE Computer Vision and Pattern Recognition (CVPR) 2024 !!!
-## Overview
-CorrMatch provides a solution for mining more high-quality regions from the unlabeled images to leverage the unlabeled data more efficiently for consistency regularization.
-![avatar](./images/cvpr_pipeline.png "pipeline")
-
-Previous approaches mostly employ complicated training strategies to leverage unlabeled data but overlook the role of correlation maps in modeling the relationships between pairs of locations. Thus, we introduce two label propagation strategies (Pixel Propagation and Region Propagation) with the help of correlation maps. 
-
-For technical details, please refer to our full paper on [arXiv](https://arxiv.org/abs/2306.04300).
 ## Getting Started
 
 ### Installation
@@ -56,45 +42,21 @@ Your dataset path may look like:
 
 ## Usage
 
-### Training CorrMatch
+### Training
 
 ```bash
 sh tools/train.sh <num_gpu> <port>
 ```
 To run on different labeled data partitions or different datasets, please modify:
 
-``config``, ``labeled_id_path``, ``unlabeled_id_path``, and ``save_path`` in [train.sh](https://github.com/BBBBchan/CorrMatch/blob/main/tools/train.sh).
+``config``, ``labeled_id_path``, ``unlabeled_id_path``, and ``save_path`` in train.sh.
 
 ### Evaluation
 ```bash
 sh tools/val.sh <num_gpu> <port>
 ```
-To evaluate your checkpoint, please modify ``checkpoint_path`` in [val.sh](https://github.com/BBBBchan/CorrMatch/blob/main/tools/val.sh).
+To evaluate your checkpoint, please modify ``checkpoint_path`` in val.sh.
 
-## Results
-
-### Pascal VOC 2012
-
-Labeled images are sampled from the **original high-quality** training set. Results are obtained by DeepLabv3+ based on ResNet-101 with training size 321(513).
-
-|        Method        | 1/16 (92) | 1/8 (183) |   1/4 (366)    | 1/2 (732) | Full (1464) |
-|:--------------------:|:---------:|:---------:|:--------------:|:---------:|:-----------:|
-|       SupOnly        |   45.1    |   55.3    |      64.8      |   69.7    |    73.5     |
-|         ST++         |   65.2    |   71.0    |      74.6      |   77.3    |    79.1     |
-|        PS-MT         |   65.8    |   69.6    |      76.6      |   78.4    |    80.0     |
-|       UniMatch       |   75.2    |   77.2    |      78.8      |   79.9    |    81.2     |
-| **CorrMatch (Ours)** | **76.4**  | **78.5**  |    **79.4**    | **80.6**  |  **81.8**   |
-
-
-### Cityscapes
-
-Results are obtained by DeepLabv3+ based on ResNet-101.
-
-|        Method        | 1/16 (186) | 1/8 (372) | 1/4   (744) | 1/2 (1488) |
-|:--------------------:|:----------:|:---------:|:-----------:|:----------:|
-|       SupOnly        |    65.7    |   72.5    |    74.4     |    77.8    |
-|       UniMatch       |    76.6    |   77.9    |   79.2     |    79.5    |
-| **CorrMatch (Ours)** |  **77.3**  | **78.5**  |  **79.4**   |  **80.4**  |
 
 
 
