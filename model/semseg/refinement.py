@@ -12,14 +12,7 @@ class RefineNet(nn.Module):
     def __init__(self, cfg):
         super(RefineNet, self).__init__()
         self.is_corr = True
-
-        #if 'resnet' in cfg['backbone']:
-            #self.backbone = \
-            #    resnet.__dict__[cfg['backbone']](cfg['pretrain'], multi_grid=cfg['multi_grid'],
-            #                                     replace_stride_with_dilation=cfg['replace_stride_with_dilation'])
-        #self.backbone = resnet.resnet101(cfg['pretrain'], multi_grid=cfg['multi_grid'], replace_stride_with_dilation=cfg['replace_stride_with_dilation'])
-
-        #self.backbone = xception(False)
+        
 
         low_channels = 256
         high_channels = 2048
@@ -36,7 +29,6 @@ class RefineNet(nn.Module):
         dict_return = {}
         h, w = x.shape[-2:]
 
-        #feats = self.backbone.base_forward(x)
         feats = pred['feats']
         c1, c4 = feats[0].detach(), feats[-1].detach()
 
